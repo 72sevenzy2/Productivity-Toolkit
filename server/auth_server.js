@@ -13,7 +13,7 @@ app.use(cors({
 })); // allow cross origin requests from other ports
 
 const client = createClient({
-    url: process.env.database_url
+    url: process.env.DATABASE_URL
 });
 client.on("error", (error) => {
     globalThis.console.log(error);
