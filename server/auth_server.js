@@ -14,7 +14,7 @@ app.use(cors({
 
 const client = createClient({
     url: process.env.DATABASE_URL
-});
+}); // create redis db
 client.on("error", (error) => {
     globalThis.console.log(error);
 
