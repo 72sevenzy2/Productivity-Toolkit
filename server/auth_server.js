@@ -32,7 +32,7 @@ app.post("/signup", async (req, res) => {
         return res.status(401).json({ error: "missing fields" });
     }
 
-    await client.set(`user: ${email}`, JSON.stringify({ name, email, password }));
+    await client.set(`${email}`, JSON.stringify({ name, email, password }));
     res.status(201).json({ message: "account created successfully" });
 });
 
@@ -40,7 +40,7 @@ app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     // grab user from our db
-    const user_data = await client.get(`user: ${email}`);
+    const user_data = await client.get(`${email}`);
 
     // check if user no exists
     if (!user_data) {
